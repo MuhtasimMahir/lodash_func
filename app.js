@@ -76,6 +76,17 @@ const _ = {
     const dropNumber = arr.findIndex((element, index) => !predicate(element, index, arr));
     const droppedArray = this.drop(arr, dropNumber);
     return droppedArray;
+  },
+  chunk(array, size){
+    if (size === undefined){
+      size = 1;
+    }
+    let arrayChunks = [];
+    for(let i = 0; i < array.length; i += size){
+      let arrayChunk = array.slice(i, i + size);
+      arrayChunks.push(arrayChunk);
+    }
+    return arrayChunks;
   }
 };
 
