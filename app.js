@@ -33,13 +33,33 @@ const _ = {
     const words = string.split(' ');
     return words;
   },
-  
-  
+  pad(string, length){
+    if (length <= string.length){
+        return string;
+      }
+    
+    const startPaddingLength = Math.floor((length - string.length) / 2);
+    const endPaddingLength = (length - string.length) - startPaddingLength;
+    const paddedString = ' '.repeat(startPaddingLength) + string + ' '.repeat(endPaddingLength);
+    return paddedString;
+  },
+  has(obj, key) {
+    const hasValue = (obj[key] !== undefined);
+    return hasValue;
+  },
+  invert(obj){
+    invertedObject = {};
+    for (let key in obj) {
+      const originalValue = obj[key];
+      invertedObject = {originalValue: key}
+    }
+    return invertedObject;
+  }
 };
 
 //test1 = _.clamp(-10, -5, 5);
 //test2 = _.inRange(3, 5, 4);
-test3 = _.words('The brown fox jumps over the lazy dog')
+test3 = _.words('The brown fox jumps over the lazy dog');
 console.log(test3);
 
 // Do not write or modify code below this line.
